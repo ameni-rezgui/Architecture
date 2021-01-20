@@ -152,4 +152,5 @@ services:
         - MSFront.aliases
 networks:
   mysubnet:
-    external: true
+    external: false
+    name: mysubnet
