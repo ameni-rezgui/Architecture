@@ -1,0 +1,659 @@
+apiVersion: v1
+items:
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-category
+      name: db-category
+    spec:
+      ports:
+        - name: "27019"
+          port: 27019
+          targetPort: 27017
+      selector:
+        io.kompose.service: db-category
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-clients
+      name: db-clients
+    spec:
+      ports:
+        - name: "27020"
+          port: 27020
+          targetPort: 27017
+      selector:
+        io.kompose.service: db-clients
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-commandes
+      name: db-commandes
+    spec:
+      ports:
+        - name: "27018"
+          port: 27018
+          targetPort: 27017
+      selector:
+        io.kompose.service: db-commandes
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-livres
+      name: db-livres
+    spec:
+      ports:
+        - name: "27017"
+          port: 27017
+          targetPort: 27017
+      selector:
+        io.kompose.service: db-livres
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-category
+      name: ms-category
+    spec:
+      ports:
+        - name: "5003"
+          port: 5003
+          targetPort: 5003
+      selector:
+        io.kompose.service: ms-category
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-clients
+      name: ms-clients
+    spec:
+      ports:
+        - name: "5010"
+          port: 5010
+          targetPort: 5000
+      selector:
+        io.kompose.service: ms-clients
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-commandes
+      name: ms-commandes
+    spec:
+      ports:
+        - name: "8181"
+          port: 8181
+          targetPort: 8181
+      selector:
+        io.kompose.service: ms-commandes
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-eureka
+      name: ms-eureka
+    spec:
+      ports:
+        - name: "8761"
+          port: 8761
+          targetPort: 8761
+      selector:
+        io.kompose.service: ms-eureka
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-front
+      name: ms-front
+    spec:
+      ports:
+        - name: "94"
+          port: 94
+          targetPort: 94
+      selector:
+        io.kompose.service: ms-front
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-livres
+      name: ms-livres
+    spec:
+      ports:
+        - name: "8700"
+          port: 8700
+          targetPort: 8700
+      selector:
+        io.kompose.service: ms-livres
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-zuul
+      name: ms-zuul
+    spec:
+      ports:
+        - name: "8888"
+          port: 8888
+          targetPort: 8888
+      selector:
+        io.kompose.service: ms-zuul
+    status:
+      loadBalancer: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-category
+      name: db-category
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: db-category
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: db-category
+        spec:
+          containers:
+            - image: mongo
+              name: db-category
+              ports:
+                - containerPort: 27017
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      creationTimestamp: null
+      name: mysubnet
+    spec:
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  io.kompose.network/mysubnet: "true"
+      podSelector:
+        matchLabels:
+          io.kompose.network/mysubnet: "true"
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-clients
+      name: db-clients
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: db-clients
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: db-clients
+        spec:
+          containers:
+            - image: mongo
+              name: db-clients
+              ports:
+                - containerPort: 27017
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-commandes
+      name: db-commandes
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: db-commandes
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: db-commandes
+        spec:
+          containers:
+            - image: mongo
+              name: db-commandes
+              ports:
+                - containerPort: 27017
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db-livres
+      name: db-livres
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: db-livres
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: db-livres
+        spec:
+          containers:
+            - image: mongo
+              name: db-livres
+              ports:
+                - containerPort: 27017
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-category
+      name: ms-category
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-category
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-category
+        spec:
+          containers:
+            - env:
+                - name: ADRESSE
+                  value: MSLivres.aliases
+                - name: DATABASE
+                  value: BDCategory.aliases
+                - name: DBPORT
+                  value: "27017"
+                - name: EUREKA_HOST
+                  value: MSEureka.aliases
+                - name: EUREKA_PORT
+                  value: "8761"
+                - name: HOSTNAME
+                  value: MSCategory.aliases
+                - name: HOST_PORT
+                  value: "5003"
+              image: ms_category
+              name: ms-category
+              ports:
+                - containerPort: 5003
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-clients
+      name: ms-clients
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-clients
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-clients
+        spec:
+          containers:
+            - env:
+                - name: HOST
+                  value: BDClients.aliases
+                - name: PORT
+                  value: "27017"
+              image: ms_clients
+              name: ms-clients
+              ports:
+                - containerPort: 5000
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-commandes
+      name: ms-commandes
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-commandes
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-commandes
+        spec:
+          containers:
+            - env:
+                - name: SERVER_PORT
+                  value: "8181"
+                - name: SPRING_DATA_MONGODB_DATABASE
+                  value: produits
+                - name: SPRING_DATA_MONGODB_HOST
+                  value: BDCommandes.aliases
+                - name: SPRING_DATA_MONGODB_PORT
+                  value: "27017"
+                - name: eureka.client.serviceUrl.defaultZone
+                  value: http://MSEureka.aliases:8761/eureka/
+              image: ms_commandes
+              name: ms-commandes
+              ports:
+                - containerPort: 8181
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-eureka
+      name: ms-eureka
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-eureka
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-eureka
+        spec:
+          containers:
+            - env:
+                - name: SERVER_PORT
+                  value: "8761"
+              image: ms_eureka
+              name: ms-eureka
+              ports:
+                - containerPort: 8761
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-front
+      name: ms-front
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-front
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-front
+        spec:
+          containers:
+            - env:
+                - name: API_URL
+                  value: localhost
+              image: ms_front
+              name: ms-front
+              ports:
+                - containerPort: 94
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-livres
+      name: ms-livres
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-livres
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-livres
+        spec:
+          containers:
+            - env:
+                - name: ADRESSE
+                  value: MSLivres.aliases
+                - name: DATABASE
+                  value: BDLivres.aliases
+                - name: DBPORT
+                  value: "27017"
+                - name: EUREKA_HOST
+                  value: MSEureka.aliases
+                - name: EUREKA_PORT
+                  value: "8761"
+                - name: HOSTNAME
+                  value: MSLivres.aliases
+                - name: PORT
+                  value: "8700"
+              image: ms_livres
+              name: ms-livres
+              ports:
+                - containerPort: 8700
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ms-zuul
+      name: ms-zuul
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: ms-zuul
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert -f docker-compose.yml -o kubfile.yaml
+            kompose.version: 1.22.0 (955b78124)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/mysubnet: "true"
+            io.kompose.service: ms-zuul
+        spec:
+          containers:
+            - env:
+                - name: SERVER_PORT
+                  value: "8888"
+                - name: eureka.client.serviceUrl.defaultZone
+                  value: http://MSEureka.aliases:8761/eureka/
+              image: ms_zuul
+              name: ms-zuul
+              ports:
+                - containerPort: 8888
+              resources: {}
+          restartPolicy: Always
+    status: {}
+kind: List
+metadata: {}
+
